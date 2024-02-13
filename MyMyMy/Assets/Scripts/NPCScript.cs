@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -9,9 +10,9 @@ public class NPCScript : MonoBehaviour
     [SerializeField] private GameObject NPC;
     [SerializeField] private float speed;
     [SerializeField] private GameObject moveTarget;
-    [SerializeField] private GameObject positonA;
-    [SerializeField] private GameObject positonB;
-    [SerializeField] private GameObject positonC;
+    [SerializeField] public  GameObject positonA;
+    [SerializeField] public GameObject positonB;
+    [SerializeField] public GameObject positonC;
     
 
     private bool inAposition;
@@ -21,29 +22,34 @@ public class NPCScript : MonoBehaviour
 
     private void Start()
     {
-        moveTarget.transform.position = positonA.transform.position;
-        
+        moveTarget.transform.position = positonA.transform.position; 
     }
 
     private void Update()
     {
         MoveTarger();
+        Shift();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Finish")
+        if (other.gameObject.name == "Pos_A")
         {
             moveTarget.transform.position = positonB.transform.position;
-            Debug.Log("IsOnTrigger");
-            
+        }
+        if (other.gameObject.name == "Pos_B")
+        {   
+            moveTarget.transform.position = positonC.transform.position;
+        }
+        if (other.gameObject.name == "Pos_C")
+        {   
+            moveTarget.transform.position = positonA.transform.position;
         }
     }
     void MoveTarger()
     {
         NPC.transform.LookAt(moveTarget.transform.position);
-        PlayWalkAnimation();
-        NPC.transform.Translate(0f, 0f, 1f * Time.deltaTime * speed);
+        NPC.transform.Translate(0f, 0f, 2f * Time.deltaTime * speed);
     }
 
     void PlayWalkAnimation()
@@ -51,17 +57,24 @@ public class NPCScript : MonoBehaviour
         NPC.GetComponent<Animator>().Play("Walk");
     }
 
-    void PlayeIdleAnimation()
+    void Shift()
     {
-        NPC.GetComponent<Animator>().Play("Idle");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NPC.GetComponent<Animator>().Play("Run_N");
+            speed = 3f;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            NPC.GetComponent<Animator>().Play("Walk");
+            speed = 1f;
+        }
     }
+
     
     
     
-    void TargetTransform()
-    {
-        
-    }
+    
 
    
 

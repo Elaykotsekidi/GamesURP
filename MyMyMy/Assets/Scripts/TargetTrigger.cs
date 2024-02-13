@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TargetTrigger : MonoBehaviour
 {
-
-    private void OnCollisionEnter(Collision collision)
+    /*public NPCScript NPC;
+    private void OnTriggerEnter(Collider other)
     {
-            if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("InPlayerPosition");
             
         }
     }
+    */
 }
+
