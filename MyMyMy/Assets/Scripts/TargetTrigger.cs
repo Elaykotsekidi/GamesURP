@@ -7,9 +7,9 @@ public class TargetTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            if (collision.gameObject.name == "NPC")
+            if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            Debug.Log("InPlayerPosition");
             
         }
     }

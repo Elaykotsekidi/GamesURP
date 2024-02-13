@@ -35,25 +35,32 @@ public class NPCScript : MonoBehaviour
         if(collision.gameObject.tag == "Finish")
         {
             moveTarget.transform.position = positonB.transform.position;
+            Debug.Log("IsOnTrigger");
+            
         }
     }
     void MoveTarger()
     {
         NPC.transform.LookAt(moveTarget.transform.position);
-        
-
+        PlayWalkAnimation();
         NPC.transform.Translate(0f, 0f, 1f * Time.deltaTime * speed);
+    }
 
-        //NPC.GetComponent<Animator>().Play("Walk");
+    void PlayWalkAnimation()
+    {
+        NPC.GetComponent<Animator>().Play("Walk");
+    }
 
-        if (NPC.transform.position == moveTarget.transform.position)
-        {
-            moveTarget.transform.position = positonB.transform.position;
-        }
-        if (NPC.transform.position == moveTarget.transform.position)
-        {
-            moveTarget.transform.position = positonC.transform.position;
-        }
+    void PlayeIdleAnimation()
+    {
+        NPC.GetComponent<Animator>().Play("Idle");
+    }
+    
+    
+    
+    void TargetTransform()
+    {
+        
     }
 
    
