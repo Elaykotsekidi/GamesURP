@@ -8,7 +8,7 @@ public class NPCScript : MonoBehaviour
 {
     [SerializeField] private GameObject NPC;
     [SerializeField] private float speed;
-    [SerializeField] private GameObject moveTarget;
+    [SerializeField] private static GameObject moveTarget;
     [SerializeField] private GameObject positonA;
     [SerializeField] private GameObject positonB;
     [SerializeField] private GameObject positonC;

@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class TargetTrigger : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
+   
 
     
-    void Update()
-    {
-        
-    }
+
+    
+    
+
 
 
 

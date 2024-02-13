@@ -4667,7 +4667,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264212992}
-  - component: {fileID: 1264212994}
   - component: {fileID: 1264212993}
   m_Layer: 0
   m_Name: MoveTarget
@@ -4712,18 +4711,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.88211167
   m_Center: {x: 0, y: -0.0014306307, z: 0}
---- !u!114 &1264212994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264212991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b658c657d231d844988a516b268e1800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1266097513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23589,6 +23576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7476469551008802505, guid: 78d57acf0c6f8064eb2fa2ba6bf23e65,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8994523150924973915, guid: 78d57acf0c6f8064eb2fa2ba6bf23e65,
         type: 3}
