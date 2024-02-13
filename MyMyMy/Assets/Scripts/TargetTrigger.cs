@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class TargetTrigger : MonoBehaviour
 {
-   
 
-    
-
-    
-    
-
-
-
-
+    private void OnCollisionEnter(Collision collision)
+    {
+            if (collision.gameObject.name == "NPC")
+        {
+            Destroy(collision.gameObject);
+            
+        }
+    }
 }

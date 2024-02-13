@@ -8,10 +8,11 @@ public class NPCScript : MonoBehaviour
 {
     [SerializeField] private GameObject NPC;
     [SerializeField] private float speed;
-    [SerializeField] private static GameObject moveTarget;
+    [SerializeField] private GameObject moveTarget;
     [SerializeField] private GameObject positonA;
     [SerializeField] private GameObject positonB;
     [SerializeField] private GameObject positonC;
+    
 
     private bool inAposition;
     private bool inBposition;
@@ -20,12 +21,21 @@ public class NPCScript : MonoBehaviour
 
     private void Start()
     {
-        moveTarget.transform.position = positonA.transform.position;  
+        moveTarget.transform.position = positonA.transform.position;
+        
     }
 
     private void Update()
     {
         MoveTarger();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Finish")
+        {
+            moveTarget.transform.position = positonB.transform.position;
+        }
     }
     void MoveTarger()
     {
@@ -34,7 +44,7 @@ public class NPCScript : MonoBehaviour
 
         NPC.transform.Translate(0f, 0f, 1f * Time.deltaTime * speed);
 
-        NPC.GetComponent<Animator>().Play("Walk");
+        //NPC.GetComponent<Animator>().Play("Walk");
 
         if (NPC.transform.position == moveTarget.transform.position)
         {
@@ -45,4 +55,7 @@ public class NPCScript : MonoBehaviour
             moveTarget.transform.position = positonC.transform.position;
         }
     }
+
+   
+
 }
