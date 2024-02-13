@@ -48,6 +48,22 @@ public class CameraScript : MonoBehaviour
         {
             _Camera.transform.Translate(0f, 0f, -1f * Time.deltaTime * _CameraMoveSpeed);
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            _Camera.transform.Translate(0.01f, 0f, 0f * Time.deltaTime * _CameraMoveSpeed);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            _Camera.transform.Translate(-0.01f, 0f, 0f * Time.deltaTime * _CameraMoveSpeed);
+        }
+
+        void CameraZoom()
+        {
+            if (Input.GetAxis("Mouse"))
+            {
+
+            }
+        }
     }
     
     
