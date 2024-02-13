@@ -22,7 +22,7 @@ public class NPCScript : MonoBehaviour
 
     private void Start()
     {
-        moveTarget.transform.position = positonA.transform.position; 
+        
     }
 
     private void Update()
@@ -31,32 +31,13 @@ public class NPCScript : MonoBehaviour
         Shift();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Pos_A")
-        {
-            moveTarget.transform.position = positonB.transform.position;
-        }
-        if (other.gameObject.name == "Pos_B")
-        {   
-            moveTarget.transform.position = positonC.transform.position;
-        }
-        if (other.gameObject.name == "Pos_C")
-        {   
-            moveTarget.transform.position = positonA.transform.position;
-        }
-    }
     void MoveTarger()
     {
         NPC.transform.LookAt(moveTarget.transform.position);
         NPC.transform.Translate(0f, 0f, 2f * Time.deltaTime * speed);
     }
 
-    void PlayWalkAnimation()
-    {
-        NPC.GetComponent<Animator>().Play("Walk");
-    }
-
+   
     void Shift()
     {
         if (Input.GetKeyDown(KeyCode.Space))
